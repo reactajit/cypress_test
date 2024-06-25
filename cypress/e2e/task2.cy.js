@@ -46,8 +46,20 @@ describe('Google Search and Write Titles to File', () => {
         cy.get('#menu-item-13 > .nav-link').click({force:true})
         cy.get('[data-ph-at-index="2"] > span > .phw-btn').click({force:true})
 
+        cy.get('input[type="checkbox"][value="Technology"]').check();
+        cy.get('input[type="checkbox"][value="Bangalore"]').check();
+
+         // Verify the number of jobs in the brackets next to 'Bangalore' matches the number of jobs listed
+    cy.get('label[for="Bangalore"]').invoke('text').then((labelText) => {
+        const jobCount = labelText.match(/\((\d+)\)/)[1]; // Extract number from the text
+  
+        // Verify the number of jobs listed matches the number in brackets
+        cy.get('.job-listing').should('have.length', parseInt(jobCount, 10));
+
 
 
     
     })
 });
+
+    
