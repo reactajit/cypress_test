@@ -23,6 +23,8 @@ describe('Google Search and Write Titles to File', () => {
         });
     });
 
+    //a file gets created as results.text
+
     /*------------------------------------------------------ */
 
     it.only('Verify that number of jobs shown in brackets next to the city matches the number of jobs shown at the right',()=>{
